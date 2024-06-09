@@ -9,6 +9,9 @@ const server = net.createServer(connection => {
     // to get the data from redis-cli to this client
     connection.on('data', data => {
         console.log('=>', data.toString());
+
+        // to send back data to redis-cli as acknowledgement from custom client
+        connection.write('+OK\r\n');
     });
 })
 
