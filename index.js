@@ -31,6 +31,8 @@ const server = net.createServer(connection => {
                             connection.write(`$${value.length}\r\n${value}\r\n`);
                         }
                     }
+
+                    break;
                         
                 }
             },
