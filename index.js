@@ -20,12 +20,15 @@ const server = net.createServer(connection => {
                         CACHE_STORAGE[key] = value;
                         connection.write('+OK\r\n');
                     }
+
+                    console.log("CACHE STORAGE => ", CACHE_STORAGE);
                         break;
                     
                     case 'get': {
                         const key = reply[1];
                         const value = CACHE_STORAGE[key];
                         if(!value) {
+                            // if there's no data exists it should return (nil) according to redis convention
                             connection.write('$-1\r\n');
                         } else {
                             connection.write(`$${value.length}\r\n${value}\r\n`);
