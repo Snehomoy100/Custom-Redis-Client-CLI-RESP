@@ -8,6 +8,10 @@ const CACHE_STORAGE = {};
 const server = net.createServer(connection => {
     console.log("Client connected...!");
 
+    // *3 -> * represents an array & 3 is the length of that array 
+    // $6 -> $ represents a string & 6 is the length of that string 
+    // that's how redis gets the data into itself in the above representation according to the Redis serialization protocol specification
+
     // to get & set the data from redis-cli to this client
     connection.on('data', data => {
         const parser = new Parser({
