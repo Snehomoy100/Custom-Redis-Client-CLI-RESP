@@ -1,4 +1,4 @@
-## Custom Redis CLI based implementation using RESP protocol
+## Custom Redis CLI based implementation using Redis serialization protocol
 
 ### Workflow:
 
